@@ -3,47 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan Faqih & Lina</title>
+  <title>Undangan Faqih & Lina</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Overlay pembuka -->
-  <div id="overlay" class="overlay">
-    <div class="overlay-card">
-      <h1>Undangan Pernikahan</h1>
-      <p>Faqih & Lina</p>
-      <button id="openBtn" class="btn">Buka Undangan</button>
-      <p class="hint">Klik untuk membuka undangan & memulai musik</p>
+  <!-- Overlay Pembuka -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <h2>Undangan Pernikahan</h2>
+      <h1>Faqih & Lina</h1>
+      <button id="openBtn">Buka Undangan</button>
     </div>
   </div>
 
-  <!-- Konten utama -->
-  <main class="container">
-    <section class="hero">
-      <img src="assets/gambar.jpg" alt="Faqih & Lina" class="hero-img">
-      <h2>Faqih & Lina</h2>
-      <p class="date">Sabtu, 12 Oktober 2025 · 10.00 WIB</p>
-      <p class="venue">Gedung Serbaguna · Jakarta</p>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero hidden">
+    <img src="assets/img/hero.jpg" alt="Faqih & Lina" class="hero-img">
+    <div class="hero-text">
+      <h1>Faqih & Lina</h1>
+      <p>Menuju Hari Bahagia</p>
+    </div>
+  </section>
 
-    <section class="detail">
-      <h3>Resepsi</h3>
-      <p><strong>12 Oktober 2025</strong></p>
-      <p>Gedung Serbaguna, Jakarta</p>
-      <p>Lokasi: <a href="https://maps.google.com" target="_blank">Google Maps</a></p>
-    </section>
+  <!-- About Section -->
+  <section class="about hidden">
+    <h2>Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
+    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami.</p>
+    <img src="assets/img/couple.jpg" alt="Foto Faqih & Lina" class="couple-photo">
+  </section>
 
-    <section class="rsvp">
-      <h3>RSVP</h3>
-      <p>Silakan konfirmasi kehadiran Anda melalui WhatsApp:</p>
-      <a href="https://wa.me/6281234567890" target="_blank" class="btn">Konfirmasi Kehadiran</a>
-    </section>
-  </main>
+  <!-- Acara Section -->
+  <section class="acara hidden">
+    <h2>Detail Acara</h2>
+    <p><strong>Akad:</strong> Sabtu, 14 Desember 2025 | 09.00 WIB</p>
+    <p><strong>Resepsi:</strong> Sabtu, 14 Desember 2025 | 11.00 WIB</p>
+    <p><strong>Lokasi:</strong> Gedung Serbaguna Jakarta</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer hidden">
+    <p>Dengan Hormat,<br> Keluarga Besar Faqih & Lina</p>
+  </footer>
 
   <!-- Musik -->
-  <audio id="bgMusic" loop>
-    <source src="assets/lagu.mp3" type="audio/mpeg">
+  <audio id="bg-music" loop>
+    <source src="assets/music/backsound.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
   </audio>
 
   <script src="script.js"></script>
