@@ -1,164 +1,127 @@
-/* ===============================
-   FONT & RESET
-================================= */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap');
-
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Georgia", serif;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: #fafafa;
+  background: #fdfdfd;
   color: #333;
+  text-align: center;
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
-/* ===============================
-   OVERLAY PEMBUKA
-================================= */
+/* Overlay */
 .overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("assets/img/hero.jpg") center/cover no-repeat;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.9);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
 
-.overlay-card {
-  background: rgba(255,255,255,0.9);
-  padding: 2rem 3rem;
-  border-radius: 12px;
+.overlay-content {
+  color: #fff;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.overlay-card h1 {
-  font-family: 'Great Vibes', cursive;
+.overlay h1 {
   font-size: 2.5rem;
-  margin-bottom: .5rem;
-  color: #8B5E3C;
+  margin: 1rem 0;
+  color: gold;
 }
 
-.overlay-card p {
+.overlay button {
+  padding: 12px 24px;
   font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  color: #555;
-}
-
-.btn {
-  background: #8B5E3C;
-  color: white;
-  padding: .8rem 1.5rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  background: gold;
+  color: #333;
   cursor: pointer;
-  font-size: 1rem;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
-.btn:hover {
-  background: #70472C;
+.overlay button:hover {
+  background: #e0b800;
 }
 
-.hint {
-  font-size: .9rem;
-  color: #777;
-  margin-top: .8rem;
-}
-
-/* ===============================
-   HERO SECTION
-================================= */
-.container {
-  padding: 3rem 1.5rem;
-  text-align: center;
-}
-
+/* Hero */
 .hero {
-  margin-bottom: 2rem;
-}
-
-.hero h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.8rem;
-  color: #8B5E3C;
-}
-
-.hero p {
-  margin-top: .5rem;
-  font-size: 1.1rem;
-  color: #666;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .hero-img {
-  max-width: 240px;
-  border-radius: 50%;
-  margin: 1.5rem auto;
-  display: block;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(70%);
 }
 
-/* ===============================
-   DETAIL ACARA
-================================= */
-.detail {
-  margin-top: 3rem;
-}
-
-.detail h3 {
-  font-size: 1.4rem;
-  color: #8B5E3C;
-  margin-bottom: .8rem;
-}
-
-.detail p {
-  font-size: 1rem;
-  margin-bottom: .5rem;
-}
-
-/* ===============================
-   RSVP
-================================= */
-.rsvp {
-  margin-top: 3rem;
-}
-
-.rsvp h3 {
-  font-size: 1.4rem;
-  color: #8B5E3C;
-  margin-bottom: .8rem;
-}
-
-.rsvp button {
-  background: #8B5E3C;
+.hero-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  padding: .7rem 1.2rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.rsvp button:hover {
-  background: #70472C;
-}
-
-/* ===============================
-   FOOTER
-================================= */
-footer {
-  margin-top: 4rem;
-  padding: 1rem;
   text-align: center;
-  font-size: .9rem;
-  background: #f2f2f2;
-  color: #666;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: gold;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+}
+
+/* Section umum */
+section {
+  padding: 80px 20px;
+}
+
+.about img.couple-photo {
+  width: 250px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.acara {
+  background: #faf3e0;
+  border-top: 2px solid gold;
+  border-bottom: 2px solid gold;
+}
+
+.footer {
+  padding: 40px 20px;
+  background: #333;
+  color: #fff;
+}
+
+/* Animasi Overlay */
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Scroll Animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
