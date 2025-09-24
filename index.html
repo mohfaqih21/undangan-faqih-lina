@@ -1,135 +1,96 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Faqih & Lina</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: url('assets/img/background.jpg') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('assets/img/background.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    /* Halaman awal */
-    .welcome-screen {
-      text-align: center;
-      background: rgba(255,255,255,0.85);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
+/* Halaman awal */
+.welcome-screen {
+  text-align: center;
+  background: rgba(255,255,255,0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  animation: fadeIn 1.5s ease-in-out;
+}
 
-    .welcome-screen h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
+.welcome-screen h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
 
-    .btn-open {
-      background: #d4af37;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.welcome-screen p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 
-    .btn-open:hover {
-      background: #b8912b;
-    }
+.btn-open {
+  background: #d4af37;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
 
-    /* Konten undangan */
-    .invitation {
-      display: none;
-      padding: 30px;
-      text-align: center;
-      overflow-y: auto;
-      height: 100vh;
-      width: 100%;
-      background: rgba(255,255,255,0.9);
-    }
+.btn-open:hover {
+  background: #b8912b;
+  transform: scale(1.05);
+}
 
-    /* Tombol musik */
-    .music-control {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-  </style>
-</head>
-<body>
+/* Konten undangan */
+.invitation {
+  display: none;
+  padding: 40px 20px;
+  text-align: center;
+  overflow-y: auto;
+  height: 100vh;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  animation: fadeIn 1.5s ease-in-out;
+}
 
-  <!-- Halaman Awal -->
-  <div class="welcome-screen" id="welcome">
-    <h1>Undangan Pernikahan</h1>
-    <p>Faqih & Lina</p>
-    <button class="btn-open" onclick="openInvitation()">Buka Undangan</button>
-  </div>
+.invitation h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-  <!-- Konten Undangan -->
-  <div class="invitation" id="invitation">
-    <h2>Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
-    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami.</p>
-    <p>📅 12 Desember 2025</p>
-    <p>📍 Gedung Serbaguna Jakarta</p>
+.invitation p {
+  font-size: 18px;
+  margin: 10px 0;
+}
 
-    <h3>Ucapan & Doa</h3>
-    <p>Kami sangat berbahagia atas doa restu Bapak/Ibu/Saudara/i sekalian.</p>
+/* Tombol musik */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+}
 
-    <h3>Kado Pernikahan</h3>
-    <p>🎁 Transfer ke BCA 123456789 a.n Faqih</p>
-  </div>
+.music-control:hover {
+  transform: rotate(10deg) scale(1.1);
+}
 
-  <!-- Musik -->
-  <audio id="bg-music" src="assets/music/backsound.mp3" loop></audio>
-  <div class="music-control" id="music-btn" style="display:none;">
-    🎵
-  </div>
-
-  <script>
-    const music = document.getElementById("bg-music");
-    const musicBtn = document.getElementById("music-btn");
-
-    function openInvitation() {
-      // Sembunyikan welcome screen
-      document.getElementById("welcome").style.display = "none";
-      // Tampilkan undangan
-      document.getElementById("invitation").style.display = "block";
-      // Mainkan musik
-      music.play();
-      // Tampilkan tombol musik
-      musicBtn.style.display = "flex";
-    }
-
-    // Tombol mute/unmute
-    let isPlaying = true;
-    musicBtn.addEventListener("click", () => {
-      if (isPlaying) {
-        music.pause();
-        musicBtn.textContent = "🔇";
-      } else {
-        music.play();
-        musicBtn.textContent = "🎵";
-      }
-      isPlaying = !isPlaying;
-    });
-  </script>
-
-</body>
-</html>
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
