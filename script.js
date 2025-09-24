@@ -1,18 +1,17 @@
 const music = document.getElementById("bg-music");
 const musicBtn = document.getElementById("music-btn");
+const welcome = document.getElementById("welcome");
+const invitation = document.getElementById("invitation");
 
 function openInvitation() {
-  // Sembunyikan welcome screen dengan transisi
-  document.getElementById("welcome").style.display = "none";
-
+  // Sembunyikan welcome screen
+  welcome.style.display = "none";
   // Tampilkan undangan
-  const invitation = document.getElementById("invitation");
   invitation.style.display = "block";
-  invitation.classList.add("fade-in");
-
   // Mainkan musik
-  music.play();
-
+  music.play().catch(err => {
+    console.log("Autoplay diblokir, user harus interaksi:", err);
+  });
   // Tampilkan tombol musik
   musicBtn.style.display = "flex";
 }
