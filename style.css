@@ -1,117 +1,137 @@
-/* Reset default */
-* {
+/* Umum */
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background: #fdfdfd;
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: url('assets/img/background.jpg') no-repeat center center/cover;
-  color: #333;
-  min-height: 100vh;
+/* Splash / Buka Undangan */
+#splash {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: url('assets/img/background.jpg') no-repeat center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-}
-
-/* Halaman awal */
-.welcome-screen {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 1s ease-in-out;
-}
-
-.welcome-screen h1 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: #2c2c2c;
-  font-weight: 600;
-}
-
-.welcome-screen p {
-  font-size: 18px;
-  margin-bottom: 25px;
-  font-style: italic;
-  color: #555;
-}
-
-.btn-open {
-  background: linear-gradient(135deg, #d4af37, #b8912b);
+  flex-direction: column;
   color: white;
+  z-index: 9999;
+}
+#splash .splash-content h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+}
+#splash button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  background: #d4a373;
   border: none;
-  padding: 14px 32px;
-  border-radius: 30px;
-  font-size: 18px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
 }
+#splash button:hover { background: #b87f5f; }
 
-.btn-open:hover {
-  background: linear-gradient(135deg, #b8912b, #8c6d1e);
-  transform: scale(1.05);
-}
-
-/* Konten undangan */
-.invitation {
-  display: none;
-  padding: 40px 25px;
-  text-align: center;
-  overflow-y: auto;
+/* Hero */
+.hero {
   height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.hero #particles-js {
+  position: absolute;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  animation: fadeIn 1s ease-in-out;
+  height: 100%;
+  z-index:1;
+}
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index:2;
+}
+.hero-content {
+  position: relative;
+  z-index:3;
+}
+.couple-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+.wedding-date {
+  font-size: 1.2rem;
+  margin-top: 10px;
 }
 
-.invitation h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  font-weight: 600;
-  color: #444;
+/* Couple Photo */
+.couple-photo {
+  width: 200px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.invitation p {
-  margin-bottom: 20px;
-  font-size: 17px;
-  color: #555;
+/* Section umum */
+section { padding: 40px 20px; }
+
+/* Button */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #d4a373;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.invitation h3 {
-  margin-top: 25px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #2c2c2c;
+/* Ucapan */
+.ucapan form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+.ucapan input, .ucapan textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.ucapan button {
+  padding: 10px;
+  background: #d4a373;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* Tombol musik */
+/* Musik */
 .music-control {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #fff;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  display: none;
-  align-items: center;
-  justify-content: center;
+}
+.music-control button {
+  background: #d4a373;
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  font-size: 24px;
-  transition: 0.3s;
-}
-
-.music-control:hover {
-  transform: scale(1.1);
-}
-
-/* Animasi fade in */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
