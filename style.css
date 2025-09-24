@@ -1,42 +1,179 @@
 body {
-  margin:0;
+  margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right, #ffe6f0, #fff0e6);
-  color:#333;
-  text-align:center;
-  overflow-x:hidden;
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
+/* Splash Screen */
 .splash {
-  position:fixed;
-  width:100%; height:100%;
-  background:#d4a373;
-  display:flex; justify-content:center; align-items:center;
-  z-index:100;
-  flex-direction:column;
-  color:white;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #d4a373;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 .splash-content h1 {
-  font-size:3rem; margin-bottom:20px; font-family:'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Great Vibes', cursive;
 }
 .splash-content button {
-  padding:15px 30px; background:white; color:#d4a373; font-weight:bold; border:none; border-radius:25px; cursor:pointer;
-  font-size:1rem;
+  padding: 15px 30px;
+  background: white;
+  color: #d4a373;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+.splash-content button:hover {
+  background: #f8f8f8;
+  transform: scale(1.05);
 }
 
-.hero { position:relative; padding:100px 20px; }
-.hero .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.2); z-index:1; }
-.couple-photo { width:250px; border-radius:15px; z-index:2; position:relative; box-shadow:0 5px 15px rgba(0,0,0,0.3); }
-.couple-name { font-family:'Great Vibes', cursive; font-size:3rem; margin:20px 0 10px 0; }
-.wedding-date, .ayat-quran { font-size:1.2rem; max-width:600px; margin:auto; }
+/* Hero Section */
+.hero {
+  position: relative;
+  padding: 100px 20px 60px;
+}
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.25);
+  z-index: 1;
+  border-radius: 0 0 40px 40px;
+}
+.couple-photo {
+  width: 220px;
+  border-radius: 20px;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.couple-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin: 25px 0 10px 0;
+  color: #b23a48;
+}
+.wedding-date, .ayat-quran {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 10px auto;
+  padding: 0 15px;
+  color: #444;
+  line-height: 1.8;
+}
 
-section { padding:60px 20px; }
-.btn { display:inline-block; margin-top:15px; padding:10px 25px; background:#d4a373; color:white; border-radius:25px; text-decoration:none; font-weight:bold; }
-.gallery-container { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
-.gallery-item { width:200px; border-radius:10px; transition:transform 0.3s; cursor:pointer; }
-.gallery-item:hover { transform:scale(1.05); }
-.countdown { font-size:1.5rem; margin-top:20px; }
-.qrcode-card { display:inline-block; padding:20px; background:white; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+/* Section umum */
+section {
+  padding: 60px 20px;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: #b23a48;
+  margin-bottom: 20px;
+}
 
-.music-control { position:fixed; bottom:20px; right:20px; }
-.music-control button { background:#d4a373; border:none; padding:10px 15px; border-radius:50px; cursor:pointer; color:white; font-size:1.2rem; }
+/* Button Umum */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 28px;
+  background: #d4a373;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: #c68c5e;
+  transform: translateY(-2px);
+}
+
+/* Galeri Foto */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.gallery-item {
+  width: 200px;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Countdown */
+.countdown {
+  font-size: 1.6rem;
+  margin-top: 25px;
+  color: #b23a48;
+  font-weight: bold;
+}
+
+/* Titip Hadiah (QRIS) */
+.qrcode-card {
+  display: inline-block;
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  margin-top: 20px;
+  transition: transform 0.3s;
+}
+.qrcode-card:hover {
+  transform: scale(1.05);
+}
+
+/* Music Control */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 200;
+}
+.music-control button {
+  background: #d4a373;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+}
+.music-control button:hover {
+  background: #c68c5e;
+  transform: scale(1.1);
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .couple-name { font-size: 2.2rem; }
+  .wedding-date, .ayat-quran { font-size: 1rem; }
+  .gallery-item { width: 140px; }
+}
