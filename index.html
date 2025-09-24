@@ -3,55 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Faqih & Lina</title>
+  <title>Undangan Pernikahan Faqih & Lina</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Overlay Pembuka -->
-  <div class="overlay" id="overlay">
-    <div class="overlay-content">
-      <h2>Undangan Pernikahan</h2>
-      <h1>Faqih & Lina</h1>
-      <button id="openBtn">Buka Undangan</button>
-    </div>
-  </div>
-
   <!-- Hero Section -->
-  <section class="hero hidden">
-    <img src="assets/img/hero.jpg" alt="Faqih & Lina" class="hero-img">
-    <div class="hero-text">
-      <h1>Faqih & Lina</h1>
-      <p>Menuju Hari Bahagia</p>
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+      <h1 class="couple-name">Faqih & Lina</h1>
+      <p class="wedding-date">Minggu, 20 Oktober 2025</p>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about hidden">
+  <!-- Opening -->
+  <section class="opening" data-aos="fade-up">
     <h2>Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
     <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami.</p>
-    <img src="assets/img/couple.jpg" alt="Foto Faqih & Lina" class="couple-photo">
   </section>
 
-  <!-- Acara Section -->
-  <section class="acara hidden">
-    <h2>Detail Acara</h2>
-    <p><strong>Akad:</strong> Sabtu, 14 Desember 2025 | 09.00 WIB</p>
-    <p><strong>Resepsi:</strong> Sabtu, 14 Desember 2025 | 11.00 WIB</p>
-    <p><strong>Lokasi:</strong> Gedung Serbaguna Jakarta</p>
+  <!-- Couple Photo -->
+  <section class="couple" data-aos="zoom-in">
+    <img src="assets/img/couple.jpg" alt="Foto Pasangan" class="couple-photo">
   </section>
 
-  <!-- Footer -->
-  <footer class="footer hidden">
-    <p>Dengan Hormat,<br> Keluarga Besar Faqih & Lina</p>
-  </footer>
+  <!-- Musik Kontrol -->
+  <div class="music-player">
+    <audio id="bg-music" src="assets/music/backsound.mp3" autoplay loop></audio>
+    <button id="music-btn">⏸ Pause</button>
+  </div>
 
-  <!-- Musik -->
-  <audio id="bg-music" loop>
-    <source src="assets/music/backsound.mp3" type="audio/mpeg">
-    Browser kamu tidak mendukung audio.
-  </audio>
-
+  <!-- Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
   <script src="script.js"></script>
 </body>
 </html>
