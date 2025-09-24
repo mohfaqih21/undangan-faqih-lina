@@ -1,57 +1,42 @@
-// Splash / Buka Undangan
+// Splash buka undangan
 const splash = document.getElementById('splash');
-const openBtn = document.getElementById('open-invite');
-const mainContent = document.getElementById('main-content');
-const music = document.getElementById('bg-music');
-
-openBtn.addEventListener('click', () => {
+const enterBtn = document.getElementById('enter-btn');
+enterBtn.addEventListener('click', () => {
   splash.style.display = 'none';
-  mainContent.style.display = 'block';
-  music.volume = 0.5;
-  music.play().catch(()=>{});
 });
 
-// Musik kontrol
+// Musik
+const music = document.getElementById('bg-music');
 const musicBtn = document.getElementById('music-btn');
+music.volume = 0.75;
+
 musicBtn.addEventListener('click', () => {
-  if (music.paused) {
-    music.play();
-    musicBtn.textContent = "🔊 Mute";
-  } else if (music.muted) {
+  if (music.muted) {
     music.muted = false;
-    musicBtn.textContent = "🔊 Mute";
   } else {
     music.muted = true;
-    musicBtn.textContent = "🔈 Unmute";
   }
 });
 
-// Ucapan tamu
-const form = document.getElementById('ucapanForm');
-const daftarUcapan = document.getElementById('daftarUcapan');
+// Countdown
+const countdownDate = new Date("Dec 25, 2025 08:00:00").getTime();
+const daysEl = document.getElementById('days');
+const hoursEl = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const nama = document.getElementById('nama').value;
-  const pesan = document.getElementById('pesan').value;
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = countdownDate - now;
+  if(distance<0) return;
 
-  const div = document.createElement('div');
-  div.classList.add('ucapan-item');
-  div.innerHTML = `<p><strong>${nama}:</strong> ${pesan}</p>`;
+  const days = Math.floor(distance/(1000*60*60*24));
+  const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+  const seconds = Math.floor((distance%(1000*60))/1000);
 
-  daftarUcapan.appendChild(div);
-  form.reset();
-});
-
-// Particles di Hero
-tsParticles.load("particles-js", {
-  background: { color: "transparent" },
-  particles: {
-    number: { value: 50 },
-    color: { value: "#ffffff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.5 },
-    size: { value: 3 },
-    move: { enable: true, speed: 1 }
-  }
-});
+  daysEl.innerText = days.toString().padStart(2,'0');
+  hoursEl.innerText = hours.toString().padStart(2,'0');
+  minutesEl.innerText = minutes.toString().padStart(2,'0');
+  secondsEl.innerText = seconds.toString().padStart(2,'0');
+}, 1000);
