@@ -1,32 +1,31 @@
-// Musik kontrol
-const music = document.getElementById('bg-music');
-const musicBtn = document.getElementById('music-btn');
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-btn");
 
-music.volume = 0.5;
+function openInvitation() {
+  // Sembunyikan welcome screen dengan transisi
+  document.getElementById("welcome").style.display = "none";
 
-musicBtn.addEventListener('click', () => {
-  if (music.muted) {
-    music.muted = false;
-    musicBtn.textContent = "🔊 Mute";
+  // Tampilkan undangan
+  const invitation = document.getElementById("invitation");
+  invitation.style.display = "block";
+  invitation.classList.add("fade-in");
+
+  // Mainkan musik
+  music.play();
+
+  // Tampilkan tombol musik
+  musicBtn.style.display = "flex";
+}
+
+// Tombol mute/unmute
+let isPlaying = true;
+musicBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    music.pause();
+    musicBtn.textContent = "🔇";
   } else {
-    music.muted = true;
-    musicBtn.textContent = "🔈 Unmute";
+    music.play();
+    musicBtn.textContent = "🎵";
   }
-});
-
-// Ucapan tamu
-const form = document.getElementById('ucapanForm');
-const daftarUcapan = document.getElementById('daftarUcapan');
-
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const nama = document.getElementById('nama').value;
-  const pesan = document.getElementById('pesan').value;
-
-  const div = document.createElement('div');
-  div.classList.add('ucapan-item');
-  div.innerHTML = `<p><strong>${nama}:</strong> ${pesan}</p>`;
-
-  daftarUcapan.appendChild(div);
-  form.reset();
+  isPlaying = !isPlaying;
 });
