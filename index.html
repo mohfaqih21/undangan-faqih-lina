@@ -3,133 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Faqih & Lina</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: url('assets/img/background.jpg') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+  <title>Undangan Pernikahan Faqih & Lina</title>
+  <link rel="stylesheet" href="style.css">
 
-    /* Halaman awal */
-    .welcome-screen {
-      text-align: center;
-      background: rgba(255,255,255,0.85);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .welcome-screen h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    .btn-open {
-      background: #d4af37;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .btn-open:hover {
-      background: #b8912b;
-    }
-
-    /* Konten undangan */
-    .invitation {
-      display: none;
-      padding: 30px;
-      text-align: center;
-      overflow-y: auto;
-      height: 100vh;
-      width: 100%;
-      background: rgba(255,255,255,0.9);
-    }
-
-    /* Tombol musik */
-    .music-control {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-  </style>
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
 
-  <!-- Halaman Awal -->
-  <div class="welcome-screen" id="welcome">
-    <h1>Undangan Pernikahan</h1>
-    <p>Faqih & Lina</p>
-    <button class="btn-open" onclick="openInvitation()">Buka Undangan</button>
+  <!-- Splash / Buka Undangan -->
+  <div id="splash">
+    <div class="splash-content">
+      <h1>Undangan Pernikahan</h1>
+      <p>Faqih & Lina</p>
+      <button id="open-invite">Buka Undangan</button>
+    </div>
   </div>
 
-  <!-- Konten Undangan -->
-  <div class="invitation" id="invitation">
-    <h2>Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
-    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami.</p>
-    <p>📅 12 Desember 2025</p>
-    <p>📍 Gedung Serbaguna Jakarta</p>
+  <!-- Main Content -->
+  <div id="main-content" style="display:none;">
 
-    <h3>Ucapan & Doa</h3>
-    <p>Kami sangat berbahagia atas doa restu Bapak/Ibu/Saudara/i sekalian.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div id="particles-js"></div>
+      <div class="overlay"></div>
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="couple-name">Faqih & Lina</h1>
+        <p class="wedding-date">Minggu, 20 Oktober 2025</p>
+      </div>
+    </section>
 
-    <h3>Kado Pernikahan</h3>
-    <p>🎁 Transfer ke BCA 123456789 a.n Faqih</p>
+    <!-- Opening -->
+    <section class="opening" data-aos="fade-up">
+      <h2>Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
+      <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan resepsi pernikahan kami.</p>
+    </section>
+
+    <!-- Couple -->
+    <section class="couple" data-aos="zoom-in">
+      <img src="assets/img/couple.jpg" alt="Faqih & Lina" class="couple-photo">
+    </section>
+
+    <!-- Wedding Info -->
+    <section class="info" data-aos="fade-up">
+      <h2>📅 Waktu & 🏛️ Tempat</h2>
+      <p><strong>Tanggal:</strong> Minggu, 20 Oktober 2025</p>
+      <p><strong>Alamat:</strong> Gedung Serbaguna Al-Ikhlas, Jakarta</p>
+      <a href="https://maps.google.com" target="_blank" class="btn">📍 Lihat Lokasi di Google Maps</a>
+    </section>
+
+    <!-- Ucapan -->
+    <section class="ucapan" data-aos="fade-up">
+      <h2>💌 Ucapan & Doa</h2>
+      <form id="ucapanForm">
+        <input type="text" id="nama" placeholder="Nama Anda" required>
+        <textarea id="pesan" placeholder="Tulis ucapan Anda..." required></textarea>
+        <button type="submit">Kirim</button>
+      </form>
+      <div id="daftarUcapan"></div>
+    </section>
+
+    <!-- Gift -->
+    <section class="gift" data-aos="fade-up">
+      <h2>🎁 Wedding Gift</h2>
+      <p>Bagi yang ingin memberikan hadiah, dapat mengirimkannya melalui:</p>
+      <p><strong>Rekening BCA:</strong> 123456789 a.n Faqih</p>
+      <p><strong>Rekening Mandiri:</strong> 987654321 a.n Lina</p>
+    </section>
+
+    <!-- Musik -->
+    <div class="music-control">
+      <audio id="bg-music" src="assets/music/backsound.mp3" loop></audio>
+      <button id="music-btn">🔊 Mute</button>
+    </div>
+
   </div>
 
-  <!-- Musik -->
-  <audio id="bg-music" src="assets/music/backsound.mp3" loop></audio>
-  <div class="music-control" id="music-btn" style="display:none;">
-    🎵
-  </div>
-
-  <script>
-    const music = document.getElementById("bg-music");
-    const musicBtn = document.getElementById("music-btn");
-
-    function openInvitation() {
-      // Sembunyikan welcome screen
-      document.getElementById("welcome").style.display = "none";
-      // Tampilkan undangan
-      document.getElementById("invitation").style.display = "block";
-      // Mainkan musik
-      music.play();
-      // Tampilkan tombol musik
-      musicBtn.style.display = "flex";
-    }
-
-    // Tombol mute/unmute
-    let isPlaying = true;
-    musicBtn.addEventListener("click", () => {
-      if (isPlaying) {
-        music.pause();
-        musicBtn.textContent = "🔇";
-      } else {
-        music.play();
-        musicBtn.textContent = "🎵";
-      }
-      isPlaying = !isPlaying;
-    });
-  </script>
-
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="script.js"></script>
 </body>
 </html>
